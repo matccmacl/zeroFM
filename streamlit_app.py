@@ -15,8 +15,11 @@ df['fq+Name'] = df['frequency'] + " - " + df['name']
 stations = df['name']
 default_station = "89.0 - DhivehiRaajjeyge Adu"
 
-st.title("Zero FM")
+st.title("Zero FM 📻")
 selected_station = st.selectbox("Select Station, ", df['fq+Name'])
+
+st.subheader(selected_station)
+
 
 def getStreamURL(selected_station, defaultStation, df):
     if(selected_station == defaultStation):
@@ -29,4 +32,6 @@ def getStreamURL(selected_station, defaultStation, df):
 
 stream = getStreamURL(selected_station,  "89.0 - DhivehiRaajjeyge Adu", df)
 
+
 st.audio(stream, autoplay=True)
+st.caption("Click play button to begin stream")
